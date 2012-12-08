@@ -31,7 +31,7 @@ class ReVIEW::LATEXBuilder
       if @mecab_tagger == nil
         @mecab_tagger = MeCab::Tagger.new("-Oyomi")
       end
-      return  escape_index(@mecab_tagger.parse(str)) + '@' + escidxstr
+      return  escape_index(@mecab_tagger.parse(str).chop) + '@' + escidxstr
     rescue
       return "!!ERROR@" + escidxstr
     end
